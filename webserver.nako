@@ -1,0 +1,37 @@
+# https://github.com/kujirahand/nadesiko3/blob/6badbaf89a27226e2285b6e7c2884b6f4affd0d1/tools/nako3edit/index.nako3
+！「plugin_express.js」を取り込む
+
+PORTは8080。
+PORTでWEBサーバ起動した時には
+    URLは「http://localhost:{PORT}」
+    「サーバ起動に成功しました。」を表示。
+    「[URL] {URL}」を表示。
+    ルーティング設定。
+ここまで
+
+WEBサーバ起動失敗した時には
+    「サーバ起動失敗」を表示。
+ここまで
+
+●ルーティング設定とは
+    「/test」へWEBサーバPOSTした時には
+        POSTデータをテストコントロール。
+    ここまで
+ここまで
+
+●（リクエストボディを）テストコントロールとは
+    {"Content-Type": "application/json"}をWEBサーバヘッダ出力。
+    名前はリクエストボディ["name"]。
+
+    もし、名前とundefinedが等しいならば
+        # NOTE: ステータスコードとレスポンスボディは同時に指定不可
+        400をWEBサーバステータス出力。
+        戻す。
+    ここまで
+
+    レスポンスボディは{
+        "name": 名前
+    }。
+    レスポンスボディを表示。
+    レスポンスボディをJSONエンコードしてWEBサーバ出力。
+ここまで
